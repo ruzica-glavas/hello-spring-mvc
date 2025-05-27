@@ -43,8 +43,9 @@ public class HelloController {
     }
     
     @GetMapping("/utente")
-    public String hello (Model model, @RequestParam (name="utente")String name) {
-        model.addAttribute("utente", name);
+    public String hello (Model model, @RequestParam (name="name")String name, @RequestParam(name = "surname") String surname) {
+        model.addAttribute("name", name);
+        model.addAttribute("surname", surname);
         return "utente";
     }
     
