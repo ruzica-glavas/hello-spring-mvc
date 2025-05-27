@@ -2,9 +2,12 @@ package org.java.spring.hello_spring_mvc.controllers;
 import java.time.LocalTime;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -37,6 +40,12 @@ public class HelloController {
     @GetMapping()
     public String redirectHello(){
         return "redirect:/hello";
+    }
+    
+    @GetMapping("/utente")
+    public String hello (Model model, @RequestParam (name="utente")String name) {
+        model.addAttribute("utente", name);
+        return "utente";
     }
     
     
